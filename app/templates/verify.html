@@ -1,0 +1,75 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">1</button>
+            <p>ACCOUNT DETAILS</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">2</button>
+            <p>PROFILE SELECTION</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">3</button>
+            <p>CONTACTS SELECTION</p>
+        </div> 
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary btn-circle">4</button>
+            <p>PROFILE VERIFICATION</p>
+        </div>
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">5</button>
+            <p>SEND CONFIRMATION</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="demo">
+<div class="table-responsive-vertical shadow-z-1">
+  <h1>Verify your message</h1>
+    <table class="table table-striped table-mc-light-blue">
+          <tr>
+            <td>Profile Name:</td>
+            <td>{{ profile.name }}</td>
+          </tr>
+          <tr>
+            <td>Address:</td>
+            <td>{{ profile.address }}</td>
+          </tr>
+          <tr>
+              <td>Message:</td>
+              <td>{{ profile.message }}</td>
+          </tr>
+          <tr>
+              <td>Contact filename:</td>
+              <td>{{ filename }}</td>
+          </tr>
+          <tr>
+              <td>Front Image:</td>
+                                            {% if profile.front_image_URL %}
+                                              <td><a href="{{ url_for('upload_front_image', profile=profile.name) }}"><img src="{{ profile.front_image_URL }}" height=262 width=262></a><br><a class="btn btn-secondary btn-sm" href="{{ url_for('upload_front_image', profile=profile.name) }}">Click to Modify</a></td>
+                                            {% else %}
+                                               <td><a href="{{ url_for('upload_front_image', profile=profile.name) }}"><img src="http://windsorcourtsapts.com/Images/noimageyet.jpg" height=100 width=100></a><br><a class="btn btn-secondary btn-sm" href="{{ url_for('upload_front_image', profile=profile.name) }}">Click to Modify</a></td>
+                                            {% endif %}
+          </tr>
+          <tr>
+              <td>Back Image:</td>
+                                            {% if profile.back_image_URL %}
+                                              <td><a href="{{ url_for('upload_back_image', profile=profile.name) }}"><img src="{{ profile.back_image_URL }}" height=262 width=262></a><br><a class="btn btn-secondary btn-sm" href="{{ url_for('upload_back_image', profile=profile.name) }}">Click to Modify</a></td>
+                                            {% else %}
+                                              <td><a href="{{ url_for('upload_back_image', profile=profile.name) }}"><img src="http://windsorcourtsapts.com/Images/noimageyet.jpg" height=100 width=100></a><br><a class="btn btn-secondary btn-sm" href="{{ url_for('upload_back_image', profile=profile.name) }}">Click to Modify</a></td>
+                                            {% endif %}
+          </tr>
+          <tr>
+              <td><a class="btn btn-warning btn-block"  href="{{ url_for('modify', profile=profile.name, filename=filename) }}">Modify Message</a></td>
+              <td><a class="btn btn-primary btn-block"  href="{{ url_for('send', profile=profile.name, filename=filename) }}">Send Message</a>
+          </tr>
+      </table>
+      </div>
+      </div>
+  </form>
+{% endblock %}

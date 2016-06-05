@@ -1,0 +1,50 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">1</button>
+            <p>ACCOUNT DETAILS</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">2</button>
+            <p>PROFILE SELECTION</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">3</button>
+            <p>CONTACTS SELECTION</p>
+        </div> 
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">4</button>
+            <p>PROFILE VERIFICATION</p>
+        </div>
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary btn-circle">5</button>
+            <p>SEND CONFIRMATION</p>
+        </div>
+    </div>
+</div>
+
+
+<div id="demo">
+  <div class="table-responsive-vertical shadow-z-1">
+    <h1>Message Sent was a Success!</h1>
+
+  <table id="table" class="table table-hover table-mc-light-blue">
+    <tbody>
+            <tr><td><center><img src="{{ image }}" height=65% width=65%></td></center></tr>
+      </tbody>
+    </table>
+  </div>
+
+    <div style="width: 45%; display: inline-block; vertical-align: top">
+        <p>Let nghejason@gmail.com know if there are any problems</p>
+  </div>
+  <div style="width: 45%; display: inline-block; vertical-align: top; margin-left: 30px;">
+  <h2>More Info:</h2>
+    <p>Information to be...</p>
+  </div>
+</div>
+{% endblock %}

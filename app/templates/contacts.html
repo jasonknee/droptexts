@@ -1,0 +1,44 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="stepwizard">
+    <div class="stepwizard-row">
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">1</button>
+            <p>ACCOUNT DETAILS</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">2</button>
+            <p>PROFILE SELECTION</p>
+        </div>
+        <div class="stepwizard-step">
+            <button type="button" class="btn btn-primary btn-circle">3</button>
+            <p>CONTACTS SELECTION</p>
+        </div> 
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">4</button>
+            <p>PROFILE VERIFICATION</p>
+        </div>
+              <div class="stepwizard-step">
+            <button type="button" class="btn btn-default btn-circle">5</button>
+            <p>SEND CONFIRMATION</p>
+        </div>
+    </div>
+</div>
+
+<div id="demo">
+<div class="table-responsive-vertical shadow-z-1">
+  <h1>Select Your Contacts</h1>
+  <a class="btn btn-warning btn-block" href="{{ url_for('upload_contacts', profile=profile.name) }}">Upload New Contacts Text File</a>
+    <table class="table table-striped table-mc-light-blue">
+    {% for contact in contacts %}
+      <tr>
+        <a class="btn btn-primary btn-block" href="{{ url_for('verify', profile=profile.name, filename=contact.filename) }}">{{ contact.filename }}</a>
+      </tr>
+    {% endfor %}
+      </table>
+      </div>
+      </div>
+  </form>
+{% endblock %}

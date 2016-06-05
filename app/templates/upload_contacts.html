@@ -1,0 +1,21 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<div id="demo">
+<div class="table-responsive-vertical shadow-z-1">
+  <h1>Upload New Contacts Text File</h1>
+    <table class="table table-striped table-mc-light-blue">
+    <form action="" method=post enctype=multipart/form-data>
+    <tbody>
+      <tr>
+        <td><input type=file name=file></td>
+        <td><input class="btn btn-primary btn" type=submit value=Upload></td>
+      </tr>
+      </tbody>
+      </form>
+      </table>
+      </div>
+      </div>
+  </form>
+{% endblock %}
