@@ -44,7 +44,9 @@ def internal_error(error):
 
 @app.route('/', methods=['GET'])
 def index():
-	profiles = Profile.query.filter_by(user=current_user)
+	profiles = None
+	if current_user.is_authenticated:
+		profiles = Profile.query.filter_by(user=current_user)
 	return render_template('index.html',
 							title='Home',
 							profiles=profiles)

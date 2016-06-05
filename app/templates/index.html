@@ -2,8 +2,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="stepwizard">
-    <div class="stepwizard-row">
+  <div id="demo">
+
+  {% if not current_user.is_authenticated %}
+    <h1>Welcome to <b>Droptexts</b></h1>
+    <h2>*FACEBOOK ACCOUNT REQUIRED</h2>
+    <a class="btn btn-primary btn-block"  href="{{ url_for('oauth_authorize', provider='facebook') }}">Login with Facebook</a>
+  {% else %}
+
+  <div class="stepwizard">
+  <div class="stepwizard-row">
         <div class="stepwizard-step">
             <button type="button" class="btn btn-default btn-circle">1</button>
             <p>ACCOUNT DETAILS</p>
@@ -27,8 +35,7 @@
     </div>
 </div>
 
-<div id="demo">
-<div class="table-responsive-vertical shadow-z-1">
+  <div class="table-responsive-vertical shadow-z-1">
   <h1>Select Your Profile</h1>
     <a class="btn btn-warning btn-block" href="{{ url_for('new') }}">Create New Profile</a>
     <table class="table table-striped table-mc-light-blue">
@@ -38,6 +45,7 @@
       </tr>
     {% endfor %}
       </table>
+  {% endif %}
       </div>
       </div>
   </form>

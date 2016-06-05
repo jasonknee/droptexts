@@ -66,9 +66,11 @@
                 <li>
                     <a href="{{ url_for('index') }}">Home</a>
                 </li>
+                  {% if current_user.is_authenticated %}
                 <li>
                     <a href="{{ url_for('setup') }}">Edit Account</a>
                 </li>
+                {% endif %}
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -89,7 +91,7 @@
           </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-          <li><a class="navbar-brand">SFV Lounge <span class="label label-warning">ALPHA</span></a></li>
+          <li><a class="navbar-brand">Droptexts <span class="label label-warning">alpha</span></a></li>
           </ul>
         </div>
       </nav>
