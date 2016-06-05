@@ -211,12 +211,12 @@ def send(profile):
 	phone = current_user.phone_number
 	message = profile.message + " - " + profile.address
 	lines = []
-	images = []
+	media = []
 
 	if profile.front_image_URL:
-		images.append(profile.front_image_URL)
+		media.append(profile.front_image_URL)
 	if profile.back_image_URL:
-		images.append(profile.back_image_URL)
+		media.append(profile.back_image_URL)
 
 	# split contact numbers into an array
 	with open(os.path.join(app.config['UPLOAD_FOLDER'], filename), 'r') as f:
@@ -227,9 +227,9 @@ def send(profile):
 		message = client.messages.create(body=message,
 									    to="+1"+line,    # Replace with your phone number
 									    from_="+1"+phone,
-									    media_url=images) # Replace with your Twilio number
+									    media_urls=media) # Replace with your Twilio number
 
-	image = images[randint(0,17)]
+	image = images[randint(0,18)]
 	return render_template('success.html',
 							image=image)
 
