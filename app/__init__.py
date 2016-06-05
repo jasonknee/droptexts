@@ -5,7 +5,7 @@ from werkzeug.utils import secure_filename
 import os
 
 UPLOAD_FOLDER = 'app/static/user_uploads/'
-ALLOWED_EXTENSIONS = set(['txt', 'jpg', 'png', 'JPG', 'PNG'])
+ALLOWED_EXTENSIONS = set(['txt', 'jpg', 'jpeg', 'png', 'JPG', 'PNG'])
 
 
 app = Flask(__name__)

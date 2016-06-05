@@ -227,7 +227,7 @@ def send(profile):
 		message = client.messages.create(body=message,
 									    to="+1"+line,    # Replace with your phone number
 									    from_="+1"+phone,
-									    media_urls=media) # Replace with your Twilio number
+									    media_url=media) # Replace with your Twilio number
 
 	image = images[randint(0,18)]
 	return render_template('success.html',
