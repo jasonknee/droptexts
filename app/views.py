@@ -261,7 +261,7 @@ def oauth_callback(provider):
 	user = User.query.filter_by(social_id=social_id).first()
 	if not user:
 		print(username)
-		user = User(social_id=social_id, username=username, email=email)
+		user = User(social_id=social_id, username=username)
 		db.session.add(user)
 		db.session.commit()
 		login_user(user,True)
