@@ -230,8 +230,10 @@ def send(profile):
 									    	to="+1"+line,    # Replace with your phone number
 									    	from_="+1"+phone,
 									    	media_url=media) # Replace with your Twilio number
-	except:
-		pass
+	#except TwilioRestException as e:
+    	#print(e)
+	# except:
+	# 	pass
 
 
 	image = images[randint(0,18)]
