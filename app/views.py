@@ -223,11 +223,16 @@ def send(profile):
 		lines = f.read().splitlines()
 
 	# send message out to each contact
-	for line in lines[1:]:
-		message = client.messages.create(body=message,
-									    to="+1"+line,    # Replace with your phone number
-									    from_="+1"+phone,
-									    media_url=media) # Replace with your Twilio number
+
+	try:
+		for line in lines[1:]:
+			message = client.messages.create(body=message,
+									    	to="+1"+line,    # Replace with your phone number
+									    	from_="+1"+phone,
+									    	media_url=media) # Replace with your Twilio number
+	except:
+		pass
+
 
 	image = images[randint(0,18)]
 	return render_template('success.html',
