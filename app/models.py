@@ -45,7 +45,7 @@ class Profile(db.Model):
 	contacts = db.relationship('Contacts', backref='profile', lazy='dynamic')
 	name = db.Column(db.String(128))
 	address = db.Column(db.String(128))
-	message = db.Column(db.String(128))
+	message = db.Column(db.String(512))
 	front_image_URL = db.Column(db.String(128))
 	back_image_URL = db.Column(db.String(128))
 	
