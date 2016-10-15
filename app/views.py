@@ -224,7 +224,7 @@ def send(profile):
 
 	# send message out to each contact
 	for line in lines[1:]:
-		message = client.messages.create(body=message,
+		response = client.messages.create(body=message,
 									    to="+1"+line,    # Replace with your phone number
 									    from_="+1"+phone,
 									    media_url=media) # Replace with your Twilio number
